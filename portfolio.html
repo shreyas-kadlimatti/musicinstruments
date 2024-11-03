@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Music Instruments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .instrument-card {
+            transition: transform 0.3s;
+        }
+
+        .instrument-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-indigo-600 text-white py-5">
+        <div class="container text-center">
+            <h1 class="text-4xl">Western Music Instruments</h1>
+            <p>Explore the variety of instruments that create beautiful music!</p>
+        </div>
+    </header>
+
+    <section id="slideshow" class="py-5">
+        <div class="container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://media.istockphoto.com/id/1190645702/photo/mans-hand-playing-acoustic-guitar.webp?a=1&b=1&s=612x612&w=0&k=20&c=9Rhl1_rTibCFc7pksfoC5TeDTuCcq-kPEPwhC4FKVME=" class="d-block w-100" alt="Instrument Slide 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://plus.unsplash.com/premium_photo-1681389126724-4f9a956845e7?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdlc3Rlcm4lMjBtdXNpYyUyMGluc3RydW1udHN8ZW58MHx8MHx8fDA%3D" class="d-block w-100" alt="Instrument Slide 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdlc3Rlcm4lMjBtdXNpYyUyMGluc3RydW1udHN8ZW58MHx8MHx8fDA%3D" class="d-block w-100" alt="Instrument Slide 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="instruments" class="py-5 bg-gray-100">
+        <div class="container">
+            <h2 class="text-center text-3xl">Select an Instrument</h2>
+            <div class="text-center mb-4">
+                <select id="instrumentSelect" class="form-select w-50 mx-auto">
+                    <option selected>Select an instrument</option>
+                    <option value="guitar">Guitar</option>
+                    <option value="piano">Piano</option>
+                    <option value="violin">Violin</option>
+                    <option value="flute">Flute</option>
+                    <option value="drums">Drums</option>
+                    <option value="saxophone">Saxophone</option>
+                    <option value="trumpet">Trumpet</option>
+                </select>
+            </div>
+            <div class="row" id="instrumentCards">
+                <!-- Cards will be displayed here based on selection -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-indigo-600 text-white py-4 text-center">
+        <p>&copy; shreyas Western Music Instruments</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const instruments = {
+            guitar: {
+                name: "Guitar",
+                image: "https://plus.unsplash.com/premium_photo-1702552108461-6eb10e76bd8f?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2VzdGVybiUyMG11c2ljJTIwaW5zdHJ1bW50c3xlbnwwfHwwfHx8MA%3D%3D",
+                description: "String instrument played by strumming or plucking."
+            },
+            piano: {
+                name: "Piano",
+                image: "https://plus.unsplash.com/premium_photo-1682326302625-1e5b7826fb3c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBpYW5vfGVufDB8fDB8fHww",
+                description: "Keyboard instrument that produces sound by striking strings."
+            },
+            violin: {
+                name: "Violin",
+                image: "https://media.istockphoto.com/id/1131760814/photo/woman-performing-on-a-violin.webp?a=1&b=1&s=612x612&w=0&k=20&c=2RvFEvOQMHXTkjPmWGG8x18SK12MdHE-WNElTL9vNcQ=",
+                description: "String instrument played with a bow."
+            },
+            flute: {
+                name: "Flute",
+                image: "https://images.unsplash.com/photo-1692552952027-d32f7061bb10?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zmx1dGV8ZW58MHx8MHx8fDA%3D",
+                description: "Woodwind instrument played by blowing air across an opening."
+            },
+            drums: {
+                name: "Drums",
+                image: "https://plus.unsplash.com/premium_photo-1682745685000-e608a614bef5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZHJ1bXN8ZW58MHx8MHx8fDA%3D",
+                description: "Percussion instrument played by striking with sticks or hands."
+            },
+            saxophone: {
+                name: "Saxophone",
+                image: "https://media.istockphoto.com/id/490647720/photo/saxophone.webp?a=1&b=1&s=612x612&w=0&k=20&c=Bh-cf3CWThJse6V9i0EdEwl731X097NBEkenOigtCuU=",
+                description: "Woodwind instrument that is usually made of brass."
+            },
+            trumpet: {
+                name: "Trumpet",
+                image: "https://images.unsplash.com/photo-1489582636924-5b46e9fa372c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJ1bXBldHxlbnwwfHwwfHx8MA%3D%3D",
+                description: "Brass instrument with a flared bell and three valves."
+            }
+        };
+
+        document.getElementById('instrumentSelect').addEventListener('change', function() {
+            const selectedInstrument = this.value;
+            const instrumentCardContainer = document.getElementById('instrumentCards');
+            instrumentCardContainer.innerHTML = '';
+
+            if (instruments[selectedInstrument]) {
+                const instrument = instruments[selectedInstrument];
+                instrumentCardContainer.innerHTML = `
+                <div class="col-md-4">
+                    <div class="card instrument-card mb-4">
+                        <img src="${instrument.image}" class="card-img-top" alt="${instrument.name}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${instrument.name}</h5>
+                            <p class="card-text">${instrument.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            }
+        });
+    </script>
+</body>
+
+</html>
